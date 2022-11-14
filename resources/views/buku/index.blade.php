@@ -3,7 +3,7 @@
 @section('content')
 <header class="container d-flex justify-content-between align-items-center mb-5">
     <p class="display-4 text-center my-auto">List MyKomik</p>
-    <a href="" class="btn btn-primary">Input Komik Baru</a>
+    <a href=" {{ route('buku.create') }} " class="btn btn-primary">Input Komik Baru</a>
 </header>
 <table class="table">
     <thead>
@@ -18,8 +18,8 @@
     <tbody>
         @foreach($buku as $b)
         <tr>
-            <th scope="row">{{$b->id}}</th>
-            <td>{{$b->image}}</td>
+            <th scope="row">{{$loop->iteration}}</th>
+            <td><img src="{{$b->image}}" alt="" class="w-25"></td>
             <td>{{$b->title}}</td>
             <td>{{$b->author}}</td>
             <td>

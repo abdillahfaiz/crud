@@ -25,7 +25,7 @@ class BukuController extends Controller
      */
     public function create()
     {
-        //
+       return view('/buku.create');
     }
 
     /**
@@ -35,8 +35,18 @@ class BukuController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        Buku::create([
+            'title' =>  $request->title,
+            'author' =>  $request->author,
+            'description' =>  $request->description,
+            'image' =>  $request->image,
+        ]);
+        // dd($request);
+
+        // redirect to index 
+        return redirect()->route('buku.index');
+        
     }
 
     /**
